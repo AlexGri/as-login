@@ -207,8 +207,8 @@ public class DatabaseCertHashLoginModule extends BaseCertLoginModule {
 
 	@Override
 	protected Group[] getRoleSets() throws LoginException {
-		String hash = getFingerprint();
-		Group[] roleSets = roleSets(hash, dsJndiName, rolesQuery, suspendResume);
+		String name = getIdentity().getName();
+		Group[] roleSets = roleSets(name, dsJndiName, rolesQuery, suspendResume);
 		return roleSets;
 	}
 
